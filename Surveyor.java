@@ -1,12 +1,14 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 public class Surveyor implements ActionListener {
-    JFrame j; JButton b,b2;
+    JFrame j; JButton b,b2,b3;
     public void signup(){
          j = new JFrame("Hello Surveyor");
 
@@ -31,7 +33,7 @@ public class Surveyor implements ActionListener {
         j.setVisible(true);
     }
     public void signin() {
-    	j = new JFrame("Val");
+    	j = new JFrame("Sign In");
         JLabel l1=new JLabel("Username");  
         l1.setBounds(0,50, 120,50);  
         JTextField username = new JTextField("enter username");
@@ -59,10 +61,10 @@ public class Surveyor implements ActionListener {
        JTextField PinCode = new JTextField();
        PinCode.setBounds(120,100,120,50); 
         b2 = new JButton("Add Patient");
-       b2.setBounds(160,300,100,30);
+       b2.setBounds(120,300,300,30);
        j.add(username);  j.add(b2);j.add(PinCode);j.add(l1);j.add(l2);
        b2.addActionListener(this);
-       j.setSize(400,500);
+       j.setSize(500,500);
        j.setLayout(null);
        j.setVisible(true);
     }

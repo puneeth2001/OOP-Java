@@ -52,9 +52,9 @@ public class MedicalCollege extends JFrame implements ActionListener{
         j.setVisible(true);
     }
     public void chooseplace() {
-        f = new JFrame("Table Example");  
-        String data[][]={ {"101","Amit","670000"}, {"102","Jai","780000"},{"101","Sachin","700000"}};    
-        String column[]={"ID","NAME","SALARY"};         
+        f = new JFrame("Table");  
+        String data[][]={ {"101","nalgonda","670000"}, {"102","chilkaluripet","780000"},{"101","vallikav","700000"}};    
+        String column[]={"ID","village","people"};         
         JTable jt=new JTable(data,column);    
         jt.setCellSelectionEnabled(true);  
         ListSelectionModel select= jt.getSelectionModel();  
@@ -69,20 +69,22 @@ public class MedicalCollege extends JFrame implements ActionListener{
                 Data = (String) jt.getValueAt(row[i], columns[j]);  
               } 
               }  
-            System.out.println("Table element selected is: " + Data);    
+            System.out.println(Data);    
           }       
-        });  
-        JScrollPane sp=new JScrollPane(jt);    
-        f.add(sp);  
+        });    
+        JScrollPane sp = new JScrollPane(jt);
+        f.add(sp);
         f.setSize(300, 200);  
         f.setVisible(true);  
 
     	
     }
     public void details() {
+    	j = new JFrame("College");
+       JLabel l1=new JLabel("Username"); 
        b3 = new JButton("Select Village");
-       b3.setBounds(160,300,100,30);
-       j.add(b3);
+       b3.setBounds(50,300,200,30);
+       j.add(b3); j.add(l1);
        b3.addActionListener(this);
        j.setSize(400,500);
        j.setLayout(null);
@@ -92,7 +94,7 @@ public class MedicalCollege extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
     	if(e.getSource()==b) {
     		j.dispose();
-    		chooseplace();
+    		details();
     	}
     	if(e.getSource()==b3) {
     		j.dispose();

@@ -24,14 +24,14 @@ public class Index extends JFrame implements ActionListener {
          r1=new JRadioButton("A) Surveyor");    
          r2=new JRadioButton("B) Medical");    
         r2.addActionListener(this);
-        r1.setBounds(160,200,100,30);
+        r1.setBounds(160,200,110,30);
         r1.addActionListener(this);    
         r2.setBounds(160,250,100,30);    
         r2.addActionListener(this);
         ButtonGroup bg = new ButtonGroup();
         bg.add(r1); bg.add(r2);
          b = new JButton("Sign Up");
-        b.setBounds(160,300,100,30);
+        b.setBounds(100,300,100,30);
         b2 = new JButton("Sign In");
         b2.setBounds(240,300,100,30);
         j.add(username);  j.add(b);j.add(password); j.add(confirmpassword);j.add(l1);j.add(l2);j.add(l3);j.add(r1);j.add(r2);
@@ -54,9 +54,13 @@ public class Index extends JFrame implements ActionListener {
         	MedicalCollege m = new MedicalCollege();
         	m.signup();
         }
-        if(e.getSource()==b2) {
+        if(r1.isSelected() && e.getSource()==b2) {
         	Surveyor s = new Surveyor();
         	s.signin();
+        }
+        if(r2.isSelected() && e.getSource()==b2) {
+        	MedicalCollege m = new MedicalCollege();
+        	m.signin();
         }
     }
 }

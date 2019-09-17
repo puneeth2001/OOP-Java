@@ -1,4 +1,4 @@
-public class Driver extends Index{
+public class Driver{
     public static void main(String[] args) {
         new Index();
     }

@@ -1,12 +1,12 @@
 import javax.swing.*;
 public class Patient extends JFrame{
-	JFrame j;
+	JFrame j; JButton b4;
 	
 	Patient(){
-        j = new JFrame("Hello");
+        j = new JFrame("Patient");
         JLabel l1=new JLabel("Name");  
         l1.setBounds(0,50, 120,50);  
-        JTextField name = new JTextField("enter name");
+        JTextField name = new JTextField("Enter Name");
         name.setBounds(120,50,120,50);
         JLabel l4=new JLabel("Age");  
         l4.setBounds(0,125, 120,50); 
@@ -27,6 +27,9 @@ public class Patient extends JFrame{
          JComboBox cb=new JComboBox(severity);    
          cb.setBounds(120, 305,90,20);    
          j.add(cb);    
+         b4 = new JButton("Add Aadhar");
+         b4.setBounds(120,350,250,20);
+         j.add(b4);
         j.add(name);j.add(l1);j.add(l4);j.add(l5);j.add(l6);j.add(l7);
         j.add(j4);j.add(j5);j.add(j6);
         j.setSize(400,500);
