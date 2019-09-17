@@ -1,10 +1,9 @@
 import javax.swing.*;
-import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class Index extends JFrame implements ActionListener {
-    JRadioButton r1; JFrame j;
+    JRadioButton r1,r2; JFrame j,j2; JButton b,b2;
     Index() {
          j = new JFrame("Hello");
 
@@ -23,44 +22,41 @@ public class Index extends JFrame implements ActionListener {
         JLabel l4=new JLabel("Group");  
         l4.setBounds(0,225, 120,50); 
          r1=new JRadioButton("A) Surveyor");    
-        JRadioButton r2=new JRadioButton("B) Medical");    
+         r2=new JRadioButton("B) Medical");    
+        r2.addActionListener(this);
         r1.setBounds(160,200,100,30);
         r1.addActionListener(this);    
         r2.setBounds(160,250,100,30);    
+        r2.addActionListener(this);
         ButtonGroup bg = new ButtonGroup();
         bg.add(r1); bg.add(r2);
-        JButton b = new JButton("Sign Up");
+         b = new JButton("Sign Up");
         b.setBounds(160,300,100,30);
+        b2 = new JButton("Sign In");
+        b2.setBounds(240,300,100,30);
         j.add(username);  j.add(b);j.add(password); j.add(confirmpassword);j.add(l1);j.add(l2);j.add(l3);j.add(r1);j.add(r2);
-        j.add(l4);
+        j.add(l4); j.add(b2);
         b.addActionListener(this);
+        b2.addActionListener(this);
         j.setSize(400,500);
         j.setLayout(null);
         j.setVisible(true);
     }
     
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()== r1){
+        if(r1.isSelected() && e.getSource()==b) {
         	j.dispose();
-            Surveyor s = new Surveyor();
-            s.signup();
+        	Surveyor s = new Surveyor();
+        	s.signup();
         }
-    }
-    public void surveyor(){
-        JFrame f= new JFrame();  
-        JDialog d = new JDialog(f , "Dialog Example", true);  
-        d.setLayout( new FlowLayout() );  
-        JButton b = new JButton ("OK");  
-        b.addActionListener ( new ActionListener()  
-        {  
-            public void actionPerformed( ActionEvent e )  
-            {  
-                d.setVisible(false);  
-            }  
-        });  
-        d.add( new JLabel ("Click button to continue."));  
-        d.add(b);   
-        d.setSize(300,300);    
-        d.setVisible(true);  
+        if(r2.isSelected()&& e.getSource()==b) {
+        	j.dispose();
+        	MedicalCollege m = new MedicalCollege();
+        	m.signup();
+        }
+        if(e.getSource()==b2) {
+        	Surveyor s = new Surveyor();
+        	s.signin();
+        }
     }
 }
